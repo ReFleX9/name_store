@@ -1,20 +1,35 @@
 {% extends "main/base.html" %}
 {% load static %}
 {% block css %}
+    <style>
+    .container11 
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        margin-left: 250px;
+    </style>
     <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
 {% endblock css %}
 
 {% block content %}
-    <div class="mt-5 pt-5 bg-white custom-shadow rounded">
-    <h2 class="m-2"><strong>{{content}}</strong></h2>
-    <p class="m-2">{{text_on_page}}</p>
-    </div>
+<div class="container11">
+    <h1>Информация о магазине</h1>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h2>Доставка</h2>
+    <p>Мы предлагаем доставку по всей стране. Стоимость и сроки доставки зависят от вашего местоположения и выбранного способа доставки.</p>
+    
+    <h2>Оплата</h2>
+    <p>Вы можете оплатить ваш заказ банковской картой или наличными при получении товара.</p>
+    
+    <h2>Контакты</h2>
+    <p>Наш адрес: ул. Примерная, д. 123, г. Примерный<br>
+    Телефон: +7 (XXX) XXX-XX-XX<br>
+    Email: info@example.com</p>
+</div>
 {% endblock content %}
 
-{% block footer %}
-    <footer class="py-4 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">About page</p>
-        </div>
-    </footer>
-{% endblock footer %}
+

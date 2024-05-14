@@ -1,17 +1,69 @@
 {% extends "main/base.html" %}
 {% load static %}
 {% block css %}
+    <style>
+        .container11 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-left: 100px; 
+        }
+    </style>
     <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
 {% endblock css %}
 
 {% block content %}
-    <h1 class="mt-5 pt-5"><strong>{{content}}</strong></h1>
+        <h1 class="mt-5 pt-5"><strong>Магазин спортивного питания HOME</strong></h1>
+        </div>
+                        <div class="container">
+                            <div class="container11">
+                                <h1>Добро пожаловать в интернет-магазин спортивного питания!</h1>
+                                <p>Мы предлагаем широкий выбор продуктов для поддержания вашего здоровья и достижения ваших спортивных целей.</p>
+                                <a class="btn btn-dark" href="{% url "catalog:index" %}">
+                                    Посмотреть продукцию
+                                </a>
+                            </div>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <section id="products" class="container11">
+                                <h1>Новинки:</h1>
+                                <p></p>
+                                <p></p>
+                                </p>
+                                <div>
+                                    <img src="{% static "deps/images/protein-powder.jpg" %}" alt="Протеиновый порошок">
+                                    <h3>Протеиновый порошок</h3>
+                                    <p>Повысьте свой белковый прием с нашим высококачественным протеиновым порошком.</p>
+                                    <a class="btn btn-dark" href="{% url "catalog:index" %}">Узнать больше</a>
+                                </div>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p> 
+                                <div>
+                                    <img src="{% static "deps/images/energy-bars.jpg" %}" alt="Энергетические батончики">
+                                    <h3>Энергетические батончики</h3>
+                                    <p>Поддержите свои тренировки с нашими вкусными и питательными энергетическими батончиками.</p>
+                                    <a class="btn btn-dark" href="{% url "catalog:index" %}">Узнать больше</a>
+                                </div>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <div>
+                                    <img src="{% static "deps/images/vitamins.jpg"%}" alt="Витамины">
+                                    <h3>Витамины</h3>
+                                    <p>Обеспечьте свой организм необходимыми витаминами для поддержания здоровья и иммунитета.</p>
+                                    <a class="btn btn-dark" href="{% url "catalog:index" %}">Узнать больше</a>
+                                </div>
+                            </section>
+                        </div> 
 {% endblock content %}
 
-{% block footer %}
-    <footer class="py-4 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Main page</p>
-        </div>
-    </footer>
-{% endblock footer %}

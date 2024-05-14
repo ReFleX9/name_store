@@ -1,6 +1,24 @@
 {% extends "main/base.html" %}
 {% load static %}
 
+{% block css %}
+<style>
+    .product {
+        width: 100%; /* Процентная ширина, чтобы занять всю ширину родительского контейнера */
+        height: 300px; /* Фиксированная высота для всех изображений */
+        overflow: hidden; /* Скрываем часть изображения, выходящую за границы контейнера */
+        position: relative;
+    }
+
+    .product img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Изображение полностью вписывается в контейнер, сохраняя пропорции */
+        display: block;
+      }
+</style>
+{% endblock css %}
+
 {% block content %}
                     <!-- Контент на странице -->
                     <div class="row">
@@ -41,15 +59,19 @@
                                 <button type="submit" class="btn btn-primary mx-3 mt-3">Применить</button>
                             </form>
                         </div>
+    
                         {% for product in goods %}
                             <!-- Карта товара -->
                             <div class="col-lg-4 col-md-6 p-4">
                                 <div class="card border-primary rounded custom-shadow">
                                     {% if product.image %}
+                                        <div class='product'>
                                         <img src="{{product.image.url}}" class="card-img-top" alt="{{product.name}}">
+                                        </div>
                                     {% else %}
+                                        <div class='product'>
                                         <img src="{%static "deps/images/Not found image.png"%}" class="card-img-top" alt="...">
-
+                                        </div>
                                     {% endif %}
                                     <div class="card-body">
                                         <a href="{% url "catalog:product" product.slug %}">
