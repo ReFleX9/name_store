@@ -4,12 +4,13 @@ from django.http import HttpResponse
 from goods.models import Categories
 
 def index(request):
-
-    
-
     context = {
         'title': 'Home - Главная',
-        'content': 'Магазин спортивного питания',
+        'content': 'Магазин спортивного питания Home',
+        'vitamin': 'vitaminy',
+        'kreatin': 'kreatin',
+        'zakuska': 'sportivnye-zakuski',
+        'all': 'all',
  
     }
     return render(request, 'main/index.html', context)

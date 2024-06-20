@@ -13,13 +13,13 @@
 {% endblock css %}
 
 {% block content %}
-        <h1 class="mt-5 pt-5"><strong>Магазин спортивного питания HOME</strong></h1>
+        <h1 class="mt-5 pt-5"><strong>{{content}}</strong></h1>
         </div>
                         <div class="container">
                             <div class="container11">
                                 <h1>Добро пожаловать в интернет-магазин спортивного питания!</h1>
                                 <p>Мы предлагаем широкий выбор продуктов для поддержания вашего здоровья и достижения ваших спортивных целей.</p>
-                                <a class="btn btn-dark" href="{% url "catalog:index" %}">
+                                <a class="btn btn-dark" href={% url "catalog:index" all %}>
                                     Посмотреть продукцию
                                 </a>
                             </div>
@@ -39,9 +39,8 @@
                                 </p>
                                 <div>
                                     <img src="{% static "deps/images/protein-powder.jpg" %}" alt="Протеиновый порошок">
-                                    <h3>Протеиновый порошок</h3>
-                                    <p>Повысьте свой белковый прием с нашим высококачественным протеиновым порошком.</p>
-                                    <a class="btn btn-dark" href="{% url "catalog:index" %}">Узнать больше</a>
+                                    <h3>Креатиновые порошки</h3>
+                                    <a class="btn btn-dark" href="{% url "catalog:index" kreatin %}">Узнать больше</a>
                                 </div>
                                 <p></p>
                                 <p></p>
@@ -51,7 +50,7 @@
                                     <img src="{% static "deps/images/energy-bars.jpg" %}" alt="Энергетические батончики">
                                     <h3>Энергетические батончики</h3>
                                     <p>Поддержите свои тренировки с нашими вкусными и питательными энергетическими батончиками.</p>
-                                    <a class="btn btn-dark" href="{% url "catalog:index" %}">Узнать больше</a>
+                                    <a class="btn btn-dark" href="{% url "catalog:index" zakuska %}">Узнать больше</a>
                                 </div>
                                 <p></p>
                                 <p></p>
@@ -61,7 +60,7 @@
                                     <img src="{% static "deps/images/vitamins.jpg"%}" alt="Витамины">
                                     <h3>Витамины</h3>
                                     <p>Обеспечьте свой организм необходимыми витаминами для поддержания здоровья и иммунитета.</p>
-                                    <a class="btn btn-dark" href="{% url "catalog:index" %}">Узнать больше</a>
+                                    <a class="btn btn-dark" href="{% url "catalog:index" vitamin %}">Узнать больше</a>
                                 </div>
                             </section>
                         </div> 
