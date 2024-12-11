@@ -26,8 +26,9 @@
                         <p>x {{ cart.product.sell_price }} = </p>
                     </div>
                     <div class="col p-0"><strong>{{ cart.product_price }} $</strong></div>
+                    
                     <div class="col p-0">
-                        <a href="{% url "cart:cart_remove" 1 %}" class="remove-from-cart" data-cart-id="">
+                        <a href="{% url "cart:cart_remove" cart.id %}" class="remove-from-cart" data-cart-id="">
                             <img class="mx-1" src="{% static "deps/icons/trash3-fill.svg"%}"
                                 alt="Catalog Icon" width="16" height="16">
                         </a>
@@ -41,6 +42,11 @@
 <div class="card mb-3 shadow-lg">
     <div class="card-footer">
         <p class="float-left">Итого <strong>{{ carts.total_quantity }}</strong> товар(а) на сумму</p>
-        <h4 class="float-left"><strong>{{ carts.total_price }} $</strong></h4>
+        {% if carts.total_price is None %}
+            <h4 class="float-left"><strong>0 $</strong></h4>
+                
+        {% else %}
+            <h4 class="float-left"><strong>{{ carts.total_price }} $</strong></h4>
+        {% endif %}
     </div>
 </div>
