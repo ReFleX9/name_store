@@ -1,11 +1,12 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models import Prefetch
 from django.shortcuts import render, redirect
 from django.contrib import auth, messages
 from carts.models import Cart
 from users.forms import ProfileForm, UserLoginForm, UserRegistrationForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-
+from orders.models import Order, OrderItem
 
 def login(request):
     form = UserLoginForm()
@@ -71,10 +72,21 @@ def profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Профайл успешно обновлен")
-            return HttpResponseRedirect(reverse('user:profile'))      
+            return HttpResponseRedirect(reverse('user:profile'))     
+    orders = (
+        Order.objects.filter(user=request.user)
+        .prefetch_related(
+            Prefetch(
+                "orderitem_set",
+                queryset=OrderItem.objects.select_related("product"),
+            )
+        )
+        .order_by("-id")
+    ) 
     context = {
         'title': 'Home - Кабинет',
-        'form': form
+        'form': form,
+        'orders': orders
     }
     return render(request, 'users/profile.html', context)
 
